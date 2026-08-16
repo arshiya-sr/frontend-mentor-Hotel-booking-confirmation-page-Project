@@ -1,0 +1,351 @@
+/* overall */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Bai Jamjuree', sans-serif;
+}
+
+
+
+:root {
+    /* color pallete*/
+
+    /* Neutral */
+    --Neutral-900: hsl(33, 15%, 15%);
+    --Neutral-800: hsl(33, 22%, 20%);
+    --Neutral-700: hsl(32, 20%, 29%);
+    --Neutral-600: hsl(33, 17%, 41%);
+    --Neutral-400: hsl(36, 22%, 86%);
+    --Neutral-200: hsl(30, 24%, 93%);
+    --Neutral-100: hsl(35, 60%, 96%);
+    --Neutral-50: hsl(40, 60%, 98%);
+    --Neutral-0: hsl(0, 0%, 100%);
+    /* Sun */
+    --Sun-500: hsl(42, 83%, 58%);
+    --Sun-300: hsl(44, 84%, 75%);
+    --Sun-200: hsl(45, 100%, 74%);
+    --Sun-50: hsl(41, 100%, 93%);
+    /* Terracotta */
+    --Terracotta-700: hsl(15, 69%, 37%);
+    --Terracotta-600: hsl(15, 74%, 41%);
+    --Terracotta-500: hsl(18, 62%, 47%);
+    --Terracotta-400: hsl(22, 72%, 56%);
+    /* Blue */
+    --Blue-500: hsl(230, 49%, 56%);
+    /* Rose */
+    --Rose-500: hsl(340, 48%, 52%);
+
+    /* fonts */
+
+    --fraunces: fraunces;
+    --DM-Sans: 'DM Sans';
+    --DM-Mono: 'DM Mono';
+}
+
+/* body */
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 0.9rem;
+    background-color: var(--Neutral-50);
+}
+
+/* header */
+
+header {
+    background-color: var(--Neutral-50);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 10px;
+    border-bottom: 1px solid var(--Neutral-400);
+    position: relative;
+    --header-height: 64px;
+    z-index: 60;
+    height: var(--header-height);
+    align-items: center;
+    overflow: visible;
+}
+
+.icon-title-container {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+}
+
+.sun-icon {
+    align-self: center;
+    width: 40px;
+    height: 40px;
+}
+
+.title {
+    font-family: var(--fraunces), sans-serif;
+    width: 80px;
+    margin: 2px 10px;
+    font-size: 1.3em;
+}
+
+.red-i {
+    color: var(--Terracotta-400);
+    font-family: serif;
+    font-size: 1.1em;
+}
+
+.menu-icon-container {
+    justify-self: flex-end;
+    align-self: center;
+    margin-right: 20px;
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    top: 12px;
+    right: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-icon,
+.menu-checkbox {
+    justify-self: flex-end;
+}
+
+.menu-label {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.menu-icon {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.menu-checkbox {
+    appearance: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--Neutral-400);
+    border-radius: 4px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.open-menu-section,
+.navigation,
+.menu-opened {
+    display: none;
+}
+
+/* Menu open: show menu overlay as a single column under the header */
+
+#menu-toggle:checked~main,
+#menu-toggle:checked~footer {
+    display: none;
+}
+
+#menu-toggle:checked~header .menu-opened {
+    display: flex;
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--Neutral-50);
+    padding: 24px 16px;
+    overflow-y: auto;
+    z-index: 40;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    /* center content horizontally */
+}
+
+/* menu opened */
+
+#menu-toggle:checked~header .navigation,
+#menu-toggle:checked~header .open-menu-section {
+    display: block;
+}
+
+/* center the inner content column and limit width for better design */
+#menu-toggle:checked~header .menu-opened>.navigation,
+#menu-toggle:checked~header .menu-opened>.open-menu-section {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+}
+
+#menu-toggle:checked~header .navigation ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    list-style: none;
+}
+
+#menu-toggle:checked~header .navigation li a {
+    display: block;
+    padding: 12px 8px;
+    color: var(--Neutral-900);
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+#menu-toggle:checked~header .open-menu-section {
+    background: transparent;
+    padding-top: 8px;
+}
+
+/* keep header layout unchanged when menu opens so it doesn't stretch */
+
+/* Ensure the label (menu icon) stays visible above overlay so user can uncheck */
+.menu-label {
+    z-index: 50;
+}
+
+/* Visually hide the checkbox input but keep it accessible */
+
+.menu-checkbox {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    overflow: hidden;
+}
+
+/* opened menu styles */
+
+.menu-opened {
+    border-top: 1px solid var(--Neutral-400);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.nav-link {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    color: var(--Neutral-700);
+
+    @media (prefers-reduced-motion: no-preference) {
+        transition: all 0.2s ease-in-out;
+    }
+}
+
+.nav-link:hover {
+    background-color: var(--Neutral-0);
+    box-shadow: 0px 0px 5px var(--Neutral-400);
+}
+
+.nav-icon {
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.structure {
+    width: fit-content;
+    display: inline;
+}
+
+.number-of-messages {
+    display: inline;
+    justify-self: flex-end;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--Terracotta-400)
+}
+
+/* open menu section */
+
+.open-menu-section {
+    justify-self: flex-end;
+}
+
+/* temp-card s*/
+
+.temprature-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 120px;
+    background-color: var(--Sun-300);
+    border-radius: 12px;
+    padding: 12px;
+    margin: 20px 0px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 0px 5px var(--Neutral-400);
+}
+
+.temprature-card p:first-child {
+    font-family: var(--DM-Mono);
+    font-size: 1em;
+    text-transform: uppercase;
+    color: var(--Neutral-700)
+}
+
+.temprature-card p:nth-child(2) {
+    font-family: var(--fraunces);
+    font-size: 2.2em;
+}
+
+.temprature-card p:last-child {
+    font-family: var(--DM-Sans);
+}
+
+.temp-icon {
+    position: absolute;
+    right: -20px;
+    top: -35px;
+    width: 110px;
+    height: 110px;
+}
+
+/* temp-info */
+
+.temprature-info {
+    padding: 20px 0px 10px;
+    border-top: 1px dashed var(--Terracotta-400);
+    color: var(--Terracotta-400);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+/* footer */
+
+.attribution {
+    font-size: 0.6875rem;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
