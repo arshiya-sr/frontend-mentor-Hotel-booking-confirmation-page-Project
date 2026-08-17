@@ -61,55 +61,85 @@
     </div>
   </header>
   <main class="main">
-
-    <!-- Sidebar ends -->
-
-    <!-- Main content starts -->
-
-    Booking · Confirmed
-    Bienvenue, Lucia.
-
-    Print receipt
-    Add to calendar
+    <section class="first-section">
+      <p class="booking-status">Booking · Confirmed</p>
+      <h2 class="hotel">Bienvenue, <i class="red-i dark-red">Lucia.</i></h2>
+      <div class="btn-container">
+        <a class="button">Print receipt</a>
+        <a class="button gray">Add to calendar</a>
+      </div>
+    </section>
 
     <!-- Booking cards start -->
-
-    <!-- Receipt card -->
-    Receipt
-    № MS-2026
-    0421-AH
-
-    Your stay
-
-    Check in
-    25 Apr
-    Saturday · 15:00
-
-    Check out
-    29 Apr
-    Wednesday · 11:00
-
-    Room · La Garrigue · 4 nights
-    € 620.00
-    Breakfast · 2 guests
-    € 96.00
-    Tourist tax
-    € 14.40
-
-    Total paid
-    € 730.40
-
-    Paid · Wise · GBP
-    <!-- Barcode image -->
-
     <!-- Note from host card -->
-    Welcome
-    A note from your host, Margaux.
-    We're so glad you're coming. The shutters will be open, the lemonade cold, and the cat - Poivre - pretending not to
-    notice you.
-    Room
-    La Garrigue
+    <section class="cards-section">
+      <article class="host-message">
+        <section class="card-header">
+          <h2 class="small-font">Welcome Card</h2>
+          <img class="card-sun-icon" src="./assets/images/icon-sun.svg" alt="Little Sun icon">
+        </section>
+        <section class="card-description">
+          <p class="sent-from">A note from your host, <b class="host-name">Margaux.</b></p>
+          <p class="card-text">We're so glad you're coming. The shutters will be open, the lemonade cold, and the cat -
+            Poivre - pretending
+            not to notice you.</p>
+        </section>
+        <section class="card-footer">
+          <p class="small-font">Room</p>
+          <p class="room-name">La Garrigue</p>
+        </section>
+      </article>
 
+      <!-- Receipt card -->
+      <article class="receipt-card">
+        <section class="card-header">
+          <p class="small-font">Receipt</p>
+          <div class="serial-number">
+            <p>№ MS-2026</p>
+            <p>0421-AH</p>
+          </div>
+          <h2 class="card-title">Your stay</h2>
+        </section>
+        <section class="time-period">
+          <div class="check in">
+            <p class="small-font">Check in</p>
+            <p class="date">25 Apr</p>
+            <p class="small-font">Saturday · 15:00</p>
+          </div>
+          <div class="check out">
+            <p class="small-font">Check out</p>
+            <p class="date">29 Apr</p>
+            <p class="small-font">Wednesday · 11:00</p>
+          </div>
+        </section>
+        <section class="table-section">
+          <table class="pricing-table">
+            <tr>
+              <th>Room · La Garrigue x 4 nights</th>
+              <td>€ 620.00</td>
+            </tr>
+            <tr>
+              <th>Breakfast x 2 guests</th>
+              <td>€ 96.00</td>
+            </tr>
+            <tr>
+              <th>Tourist tax</th>
+              <td>€ 14.40</td>
+            </tr>
+          </table>
+        </section>
+        <section class="total-section">
+          <div class="total">
+            <p>Total paid</p>
+            <p>€ 730.40</p>
+          </div>
+          <div class="barcode">
+            <p class="small-font">Paid · Wise · GBP</p>
+            <img src="./assets/images/icon-barcode.svg">
+          </div>
+        </section>
+      </article>
+    </section>
     <!-- Booking cards end -->
 
     <!-- Guest info row starts -->
@@ -144,7 +174,7 @@
     <!-- Main content ends -->
   </main>
 
-  <footer class="attribution">
+  <footer class="footer">
     <p>Challenge by <a rel="noopener noreferrer" target="_blank"
         href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.</p>
     <p>Coded by <a class="attribution" rel="noopener noreferrer" target="_blank"
