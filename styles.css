@@ -105,7 +105,7 @@ header {
     margin-right: 20px;
     width: 40px;
     height: 40px;
-    position: fixed;
+    position: absolute;
     top: 12px;
     right: 4px;
     display: flex;
@@ -249,6 +249,7 @@ header {
     width: 100%;
     height: 50px;
     color: var(--Neutral-700);
+    position: relative;
 
     @media (prefers-reduced-motion: no-preference) {
         transition: all 0.2s ease-in-out;
@@ -273,12 +274,15 @@ header {
 }
 
 .number-of-messages {
+    position: absolute;
     display: inline;
-    justify-self: flex-end;
+    margin-left: auto;
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: var(--Terracotta-400)
+    background-color: var(--Terracotta-600);
+    color: var(--Neutral-0);
+    text-align: center;
 }
 
 /* open menu section */
@@ -383,7 +387,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 170px;
+    width: 160px;
     height: 36px;
     border: 1px solid var(--Neutral-400);
     border-radius: 16px;
@@ -626,6 +630,155 @@ tr:last-child td {
 .total p:last-child {
     font-family: var(--fraunces);
     font-size: 1.6em;
+}
+
+/* info cards */
+
+.info-section {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    gap: 15px;
+    align-items: center;
+}
+
+.info-card {
+    width: 100%;
+    max-width: 335px;
+    height: 200px;
+    background-color: var(--Neutral-0);
+    border: 1px solid var(--Neutral-400);
+    border-radius: 16px;
+    padding: 18px 10px;
+    box-shadow: 0px 0px 10px var(--Neutral-400);
+}
+
+/* info-card header */
+
+.info-card .card-header {
+    border-top: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 0;
+}
+
+.icon-container {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+.arrival .icon-container {
+    background-color: var(--Terracotta-600);
+}
+
+.arrival .card-title,
+.arrival .number-of-card {
+    color: var(--Terracotta-600);
+}
+
+.wifi .icon-container {
+    background-color: var(--Blue-500);
+}
+
+.wifi .card-title,
+.wifi .number-of-card {
+    color: var(--Blue-500);
+}
+
+.breakfast .icon-container {
+    background-color: var(--Rose-500);
+}
+
+.breakfast .card-title,
+.breakfast .number-of-card {
+    color: var(--Rose-500);
+}
+
+.info-card .card-title {
+    font-family: var(--DM-Sans);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    letter-spacing: 2px;
+}
+
+.number-of-card {
+    margin-left: auto;
+    display: block;
+    font-family: var(--fraunces);
+    font-size: 1.6em;
+}
+
+/* info card infos */
+
+.main-info {
+    font-size: 1.5em;
+    font-weight: 400;
+    font-family: var(--fraunces);
+    margin-bottom: 6px;
+}
+
+.additional-info {
+    margin-bottom: 10px;
+    color: var(--Neutral-600);
+    font-size: 0.9em;
+}
+
+.description {
+    line-height: 1.4em;
+    color: var(--Terracotta-600);
+}
+
+.info-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.info-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--Neutral-200);
+    width: 100%;
+    height: 30px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    justify-content: space-between;
+}
+
+.info-bar p:first-child:not(.wifi-password) {
+    color: var(--Neutral-700);
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+}
+
+
+.password-container {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+}
+
+.wifi-password {
+    color: var(--Neutral-900);
+}
+
+.copy-btn {
+    border: 1px solid var(--Neutral-400);
+    padding: 3px 4px;
+    border-radius: 10px;
+    color: var(--Neutral-600);
+    text-transform: uppercase;
+    font-size: 0.8em;
 }
 
 /* footer */
