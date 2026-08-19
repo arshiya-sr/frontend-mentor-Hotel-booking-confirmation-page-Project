@@ -129,6 +129,10 @@ header {
     cursor: pointer;
 }
 
+.navigation ul {
+    list-style: none;
+}
+
 .menu-icon {
     width: 100%;
     height: 100%;
@@ -244,12 +248,12 @@ header {
 .nav-link {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 50px;
     color: var(--Neutral-700);
     position: relative;
+    text-decoration: none;
 
     @media (prefers-reduced-motion: no-preference) {
         transition: all 0.2s ease-in-out;
@@ -277,6 +281,8 @@ header {
     position: absolute;
     display: inline;
     margin-left: auto;
+    top: 15px;
+    right: 10px;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -409,6 +415,10 @@ header {
     align-items: center;
     padding: 20px 0;
     gap: 20px;
+}
+
+.hover-hint {
+    display: none;
 }
 
 /* host message card */
@@ -790,4 +800,255 @@ tr:last-child td {
 
 .footer a {
     color: hsl(228, 45%, 44%);
+}
+
+/* desktop design */
+
+@media screen and (min-width: 1000px) {
+    body {
+        flex-direction: row;
+        min-height: 100vh;
+        padding-bottom: 52px;
+    }
+
+    header {
+        position: sticky;
+        top: 0;
+        width: 20%;
+        min-width: 220px;
+        max-width: 260px;
+        height: 100vh;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px 16px 12px;
+        border-right: 1px solid var(--Neutral-400);
+        border-bottom: none;
+        box-shadow: none;
+        overflow: visible;
+    }
+
+    .nav-link {
+        width: 200px;
+        height: 40px;
+        margin: 0 5px;
+        text-align: left;
+    }
+
+    .icon-title-container {
+        width: 100%;
+        margin-bottom: 18px;
+    }
+
+    .menu-checkbox,
+    .menu-label {
+        display: none;
+    }
+
+    .menu-icon-container {
+        display: none;
+    }
+
+    .menu-opened {
+        display: flex;
+        position: static;
+        width: 100%;
+        background: transparent;
+        border-top: 1px solid var(--Neutral-400);
+        padding: 0;
+        box-shadow: none;
+        overflow: visible;
+        justify-content: space-between;
+        height: 100%;
+        gap: 18px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .navigation {
+        justify-self: flex-start;
+    }
+
+    .navigation,
+    .open-menu-section {
+        display: block;
+        width: 100%;
+    }
+
+    .navigation ul {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .navigation li {
+        width: 100%;
+    }
+
+    .number-of-messages {
+        top: 10px;
+    }
+
+    .menu-opened>.navigation,
+    .menu-opened>.open-menu-section {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+
+    .open-menu-section {
+        margin-top: 10px;
+        justify-self: flex-end;
+    }
+
+    .temprature-card p:first-child {
+        z-index: 10;
+    }
+
+    #menu-toggle:checked~header .menu-opened,
+    #menu-toggle:checked~header .navigation,
+    #menu-toggle:checked~header .open-menu-section {
+        display: flex;
+        position: static;
+    }
+
+    #menu-toggle:checked~header .open-menu-section {
+        flex-direction: column;
+    }
+
+    #menu-toggle:checked~main,
+    #menu-toggle:checked~footer {
+        display: block;
+    }
+
+    #menu-toggle:checked~header {
+        flex-direction: column;
+    }
+
+    /* main */
+
+    .main {
+        flex: 1;
+        min-height: 100vh;
+        padding-bottom: 72px;
+    }
+
+    /* main header */
+
+    .first-section {
+        margin-top: 15px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .btn-container {
+        margin-left: auto;
+        flex-direction: row;
+        justify-self: flex-end;
+        gap: 10px;
+        margin-right: 20px;
+    }
+
+    .button {
+        height: 40px;
+        width: 145px;
+        border-radius: 23px;
+    }
+
+    .nav-link:first-child {
+        margin-top: 20px;
+        ;
+    }
+
+    /* cards section */
+
+    .cards-section {
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: flex-end;
+        position: relative;
+    }
+
+    .host-message,
+    .receipt-card {
+        margin-bottom: 10px;
+    }
+
+    .host-message {
+        transform: rotate(5deg);
+        z-index: 10;
+        width: 360px;
+        height: 430px;
+        transition: all 0.4s ease-in;
+    }
+
+    .receipt-card {
+        transform: rotate(-5deg);
+        width: 360px;
+        height: 430px;
+        transition: all 0.4s ease-in;
+    }
+
+    .receipt-card:hover {
+        transform: rotate(5deg);
+        transform: scale(1.005);
+        box-shadow: 0px 23px 25px var(--Neutral-400);
+        z-index: 21;
+    }
+
+    .cards-section:has(.receipt-card:hover) .host-message {
+        transform: translateX(10px);
+        transform: rotate(15deg);
+    }
+
+    .host-message:hover {
+        transform: rotate(-5deg);
+        transform: scale(1.005);
+        box-shadow: 0px 15px 30px var(--Terracotta-400);
+    }
+
+    .cards-section:has(.host-message:hover) .receipt-card {
+        transform: translateX(10px);
+        transform: rotate(-15deg);
+    }
+
+    .hover-hint {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        color: var(--Terracotta-400);
+        text-transform: uppercase;
+        font-size: 0.85em;
+    }
+
+    .hover-hint::after,
+    .hover-hint::before {
+        content: "♦";
+        margin: 5px;
+        color: var(--Terracotta-600);
+    }
+
+    /* info section */
+
+    .info-section {
+        margin-top: 20px;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* footer */
+
+    .footer {
+        position: fixed;
+        bottom: 0;
+        height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background-color: rgba(255, 255, 255, 0.96);
+        border-top: 1px solid var(--Neutral-400);
+        z-index: 10;
+        width: 100%;
+    }
 }
