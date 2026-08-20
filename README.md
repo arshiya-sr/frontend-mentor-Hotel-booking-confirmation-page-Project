@@ -30,11 +30,11 @@ Users should be able to:
 
 ### Screenshot
 
-!preview desktop: [Preview Desktop](./assets/images/Frontend-Mentor-Hotel-booking-confirmation-preview-desktop.png)
+preview desktop: ![Preview Desktop](./assets/images/Frontend-Mentor-Hotel-booking-confirmation-preview-desktop.png)
 
-!preview mobile: [Preview Mobile](./assets/images/Frontend-Mentor-Hotel-booking-confirmation-preview-mobile.png)
+preview mobile: ![Preview Mobile](./assets/images/Frontend-Mentor-Hotel-booking-confirmation-preview-mobile.png)
 
-!preview mobile-menu: [Preview Mobile](./assets/images/Frontend-Mentor-Hotel-booking-confirmation-preview-mobile-menu.png)
+preview mobile-menu: ![Preview Mobile](./assets/images/Frontend-Mentor-Hotel-booking-confirmation-preview-mobile-menu.png)
 
 ### Links
 
