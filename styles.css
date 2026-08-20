@@ -84,6 +84,11 @@ header {
     align-self: center;
     width: 40px;
     height: 40px;
+
+}
+
+.sun-icon:hover {
+    transform: rotate(360deg);
 }
 
 .title {
@@ -219,6 +224,7 @@ header {
 /* keep header layout unchanged when menu opens so it doesn't stretch */
 
 /* Ensure the label (menu icon) stays visible above overlay so user can uncheck */
+
 .menu-label {
     z-index: 50;
 }
@@ -255,14 +261,13 @@ header {
     position: relative;
     text-decoration: none;
 
-    @media (prefers-reduced-motion: no-preference) {
-        transition: all 0.2s ease-in-out;
-    }
+
 }
 
 .nav-link:hover {
     background-color: var(--Neutral-0);
     box-shadow: 0px 0px 5px var(--Neutral-400);
+    transform: scale(1.005);
 }
 
 .nav-icon {
@@ -312,6 +317,12 @@ header {
     position: relative;
     overflow: hidden;
     box-shadow: 0px 0px 5px var(--Neutral-400);
+
+}
+
+.temprature-card:hover {
+    transform: scale(1.01);
+    box-shadow: 0px 0px 10px var(--Neutral-400);
 }
 
 .temprature-card p:first-child {
@@ -398,6 +409,13 @@ header {
     border: 1px solid var(--Neutral-400);
     border-radius: 16px;
     cursor: pointer;
+
+
+}
+
+.button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px var(--Neutral-400);
 }
 
 .gray {
@@ -642,6 +660,24 @@ tr:last-child td {
     font-size: 1.6em;
 }
 
+/* mobile cards animation */
+
+@media screen and (max-width:1063px) {
+
+    .host-message:hover {
+        transform: rotate(-2deg);
+        transform: scale(1.005);
+        box-shadow: 0px 10px 32px var(--Terracotta-400);
+    }
+
+    .receipt-card:hover {
+        transform: rotate(-2deg);
+        transform: scale(1.005);
+        box-shadow: 0px 19px 25px var(--Neutral-400);
+    }
+}
+
+
 /* info cards */
 
 .info-section {
@@ -661,6 +697,13 @@ tr:last-child td {
     border-radius: 16px;
     padding: 18px 10px;
     box-shadow: 0px 0px 10px var(--Neutral-400);
+
+}
+
+.info-card:hover {
+    transform: scale(1.01);
+    box-shadow: 0px 0px 15px var(--Neutral-400);
+    border: 2px solid var(--Neutral-400);
 }
 
 /* info-card header */
@@ -804,12 +847,39 @@ tr:last-child td {
 
 /* desktop design */
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1064px) {
+
+    /* display fix */
+    #menu-toggle:checked~header .menu-opened,
+    #menu-toggle:checked~header .navigation,
+    #menu-toggle:checked~header .open-menu-section {
+        display: flex;
+        position: static;
+    }
+
+    #menu-toggle:checked~header .open-menu-section {
+        flex-direction: column;
+    }
+
+    #menu-toggle:checked~main,
+    #menu-toggle:checked~footer {
+        display: block;
+    }
+
+    #menu-toggle:checked~header {
+        flex-direction: column;
+    }
+
+    /* body */
+
+
     body {
         flex-direction: row;
         min-height: 100vh;
         padding-bottom: 52px;
     }
+
+    /* header */
 
     header {
         position: sticky;
@@ -832,6 +902,8 @@ tr:last-child td {
         height: 40px;
         margin: 0 5px;
         text-align: left;
+        padding: 5px;
+        border-radius: 6px;
     }
 
     .icon-title-container {
@@ -904,26 +976,6 @@ tr:last-child td {
         z-index: 10;
     }
 
-    #menu-toggle:checked~header .menu-opened,
-    #menu-toggle:checked~header .navigation,
-    #menu-toggle:checked~header .open-menu-section {
-        display: flex;
-        position: static;
-    }
-
-    #menu-toggle:checked~header .open-menu-section {
-        flex-direction: column;
-    }
-
-    #menu-toggle:checked~main,
-    #menu-toggle:checked~footer {
-        display: block;
-    }
-
-    #menu-toggle:checked~header {
-        flex-direction: column;
-    }
-
     /* main */
 
     .main {
@@ -956,7 +1008,6 @@ tr:last-child td {
 
     .nav-link:first-child {
         margin-top: 20px;
-        ;
     }
 
     /* cards section */
@@ -978,14 +1029,12 @@ tr:last-child td {
         z-index: 10;
         width: 360px;
         height: 430px;
-        transition: all 0.4s ease-in;
     }
 
     .receipt-card {
         transform: rotate(-5deg);
         width: 360px;
         height: 430px;
-        transition: all 0.4s ease-in;
     }
 
     .receipt-card:hover {
@@ -1050,5 +1099,32 @@ tr:last-child td {
         border-top: 1px solid var(--Neutral-400);
         z-index: 10;
         width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .nav-link {
+        transition: all 0.2s ease-in-out;
+    }
+
+    .info-card {
+        transition: all 0.2s ease-in;
+    }
+
+    .receipt-card,
+    .host-message {
+        transition: all 0.4s ease-in;
+    }
+
+    .button {
+        transition: all 0.2s ease-in-out;
+    }
+
+    .temprature-card {
+        transition: 0.3s ease-in;
+    }
+
+    .sun-icon {
+        transition: 1s ease;
     }
 }
