@@ -91,5 +91,5 @@ I'll continue working on:
 
 ## Acknowledgments
 
-thank to Freecodecamp for this awesome Project/Challenge, and thank to you for paying your time and attention to my project. I'd be so happy to receive your advice and recommendations.
+thank to Frontend Mentor for this awesome Project/Challenge, and thank to you for paying your time and attention to my project. I'd be so happy to receive your advice and recommendations.
 Hope you a good day ♥
